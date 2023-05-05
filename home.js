@@ -76,3 +76,10 @@ const getDeptHtml=(depList)=>{
     return deptHtml;
 }
 
+const remove=(node)=>{
+    let employeeData = employeePayrollList.filter(empData=>empData._id == node.id);
+    const index = employeePayrollList.map(empData=>empData._id).indexOf(employeeData._id);
+    employeePayrollList.splice(index-1,1);
+    localStorage.setItem("EmployeeDataList",JSON.stringify(employeePayrollList));
+    createInnerHtml();
+}
