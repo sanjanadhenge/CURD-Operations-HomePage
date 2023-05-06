@@ -44,7 +44,12 @@ class EmployeeData{
     }
     get startdate(){ return this._startdate;}
     set startdate(startdate){{
-            this._startdate=startdate;
+        let now = new Date();
+        if(startdate>now) throw "StartDate is a Future Date";
+        var diff=Math.abs(now.getTime()-startdate.getTime());
+        if(diff/(1000*60*60*24)>30)
+        throw "StartDate is beyond 30 days";
+        this._startdate=startdate;
     }
       
     }

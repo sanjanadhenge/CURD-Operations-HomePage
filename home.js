@@ -91,8 +91,7 @@ const update=(node)=>{
         {
          empPayrollData=item;
         }
-    }
-        );
+    });
     localStorage.setItem('editEmp',JSON.stringify(empPayrollData));
     window.location.replace(site_properties.add_emp_payroll_page);
 }
